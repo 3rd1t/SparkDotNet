@@ -88,6 +88,11 @@ namespace SparkDotNet
             return DeserializeObject<T>(await response.Content.ReadAsStringAsync());
         }
 
+        private string getURL(string path)
+        {
+            return getURL(path, new Dictionary<string, string>(0), baseURL);
+        }
+        
         private string getURL(string path, Dictionary<string, string> dict)
         {
             return getURL(path, dict, baseURL);

@@ -167,7 +167,7 @@ namespace SparkDotNet
             if (registration != null) bodyParameters.Add("registration", registration);
             if (integrationTags != null) bodyParameters.Add("integrationTags", integrationTags);
 
-            return await PostItemAsync<Meeting>(meetingsBase, bodyParameters);
+            return await PostItemAsync<Meeting>(getURL(meetingsBase), bodyParameters);
         }
 
         /// <summary>
@@ -307,7 +307,7 @@ namespace SparkDotNet
             if (sendEmail != null) bodyParameters.Add("sendEmail", sendEmail);
             if (registration != null) bodyParameters.Add("registration", registration);
 
-            return await PostItemAsync<Meeting>($"{meetingsBase}/{meetingId}", bodyParameters);
+            return await UpdateItemAsync<Meeting>(getURL($"{meetingsBase}/{meetingId}"), bodyParameters);
         }
 
         /// <summary>
